@@ -1,0 +1,51 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: gdy
+ * Date: 2021/8/12
+ * Time: 下午1:36
+ */
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateQuestionTables extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('questions',
+            function (Blueprint $table)  {
+                $table->bigIncrements('id');
+                $table->string('detail')->default('')->comment('问题正文');
+                $table->string('title')->default('')->comment('问题标题');
+                $table->unsignedBigInteger('create_admin_user_id')->comment('创建人ID');
+                $table->unsignedBigInteger('type')->comment('分类ID');
+                $table->timestamps();
+            }
+        );
+        Schema::create('question_types',
+            function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('name')->default('')->comment('分组名称');
+                $table->timestamps();
+            }
+        );
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('questions');
+        Schema::drop('question_types');
+    }
+}
