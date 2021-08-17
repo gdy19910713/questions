@@ -6,13 +6,14 @@
 ## Installing
 
 ```shell
-$ composer require gd/question -vvv
+$ composer require gdy0713/question -vvv
 ```
-
+$ php artisan vendor:publish --provider="Gd\Question\QuestionServiceProvider"
 ## Usage
-
+ 在 api.php 中 添加 \Gd\Question\Admin::routes();
+ 
 TODO
-
+![这是一张图片](https://static.zwmstk.cn/2021-08-17/FroOfF4Vnq4Ky9tWhDuIw-0ioJet.png)
 ## Contributing
 
 You can contribute in one of three ways:
